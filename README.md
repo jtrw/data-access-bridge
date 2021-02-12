@@ -4,6 +4,11 @@ Bridge for DataBase and Api
 
 Package Create endpoint for search in DB
 
+## Install
+```
+composer require jtrw/data-access-bridge
+```
+
 Example JsonRPC
 ```json
 {
