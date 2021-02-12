@@ -1,0 +1,47 @@
+{
+    "name": "jtrw/data-access-bridge",
+    "type": "library",
+    "description": "Data Access Bridge with API and Data Base",
+    "keywords": [
+        "Data Access Object",
+        "Data Access Bridge",
+        "DB",
+        "Data Base Api",
+        "Api"
+    ],
+    "homepage": "https://github.com/jtrw/data-access-bridge",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Nil",
+            "email": "brdnlsrg@gmail.com",
+            "homepage": "https://github.com/jtrw",
+            "role": "Developer"
+        }
+    ],
+    "require": {
+        "php" : ">=7.4",
+        "jtrw/dao": "1.0.*"
+    },
+    "require-dev": {
+        "phpunit/phpunit" : ">=8.0",
+        "squizlabs/php_codesniffer": "^3.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "Jtrw\\DataAccessBridge\\": "src"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+        }
+    },
+    "scripts": {
+        "test": "phpunit",
+        "check-style": "phpcs src tests",
+        "fix-style": "phpcbf src tests"
+    },
+    "config": {
+        "sort-packages": true
+    }
+}
