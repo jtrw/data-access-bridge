@@ -15,7 +15,7 @@ interface DataBaseInterface
      * @param string|null $orderBy
      * @param int|null $limit
      * @param int|null $offset
-     * @param array|null $groupBy
+     * @param string|null $groupBy
      * @param array|null $having
      * @return array|null
      */
@@ -26,7 +26,7 @@ interface DataBaseInterface
                            ?string $orderBy = null,
                            ?int $limit = null,
                            ?int $offset = null,
-                           ?array $groupBy = null,
+                           ?string $groupBy = null,
                            ?array $having = null
     ): ?array;
 }

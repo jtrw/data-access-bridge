@@ -35,7 +35,7 @@ class MysqlPdoDataBaseAdapter implements DataBaseInterface
      * @param string|null $orderBy
      * @param int|null $limit
      * @param int|null $offset
-     * @param array|null $groupBy
+     * @param string|null $groupBy
      * @param array|null $having
      * @return array|null
      * @throws \Jtrw\DAO\Exceptions\DatabaseException
@@ -47,7 +47,7 @@ class MysqlPdoDataBaseAdapter implements DataBaseInterface
                            ?string $orderBy = null,
                            ?int $limit = null,
                            ?int $offset = null,
-                           ?array $groupBy = null,
+                           ?string $groupBy = null,
                            ?array $having = null
     ): ?array
     {
@@ -62,7 +62,6 @@ class MysqlPdoDataBaseAdapter implements DataBaseInterface
                 $alias = $chunks[1] ?? null;
                 $query->select($name, $alias);
             }
-            
         }
     
         if ($joins) {

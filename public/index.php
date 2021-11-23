@@ -10,18 +10,25 @@ $db = new PDO($CONFIG['db']['dsn'], $CONFIG['db']['user'], $CONFIG['db']['passwo
 $res = $db->query('SET NAMES utf8');
 
 if (!$res) {
-    throw new Exception(__('Database connection error'));
+    throw new Exception('Database connection error');
 }
 
 use Jtrw\DataAccessBridge\ApiDataAccessBridge;
 use Jtrw\DataAccessBridge\Repository\MysqlPdoDataBaseAdapter;
 use Jtrw\DataAccessBridge\DTO\JsonRpcDto;
 
-$api = new ApiDataAccessBridge(
-    new MysqlPdoDataBaseAdapter($db),
-    new JsonRpcDto(file_get_contents('php://input'))
-);
+try {
+    $api = new ApiDataAccessBridge(
+        new MysqlPdoDataBaseAdapter($db),
+        new JsonRpcDto(file_get_contents('php://input'))
+    );
+    
+    header('Content-Type: application/json');
+    echo json_encode($api->init(), JSON_THROW_ON_ERROR);
+    exit;
+} catch (Exception $exp) {
+    //...
+}
 
 
-header('Content-Type: application/json');
-echo json_encode($api->init());
+
